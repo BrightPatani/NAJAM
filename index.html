@@ -32,7 +32,7 @@
       <img src="logo.avif" alt="Najam Logo" class="h-12 w-auto sm:h-16 transition-transform duration-300 hover:scale-110 hover:rotate-3">
     </div>
     <!-- Right: Donate Button -->
-    <a href="#donate" class="flex items-center space-x-2 bg-[#0b1b82] text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
+    <a href="#donate" class="flex items-center space-x-2 bg-[#ecc714] text-[#0b1b82] px-6 py-3 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
       <span class="text-xl sm:text-2xl">❤️</span>
       <span>Donate Now</span>
     </a>
@@ -40,130 +40,130 @@
 </header>
 
 <!-- modal -->
-<div id="donation-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 sm:p-6">
-  <div class="flex w-full max-w-5xl h-[90vh] bg-[#0A1828] rounded-2xl shadow-2xl overflow-hidden">
+<div id="donation-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-2 sm:p-4">
+  <div class="flex flex-col sm:flex-row w-full max-w-[95vw] sm:max-w-5xl h-[90vh] sm:h-[80vh] max-h-[90vh] bg-[#0A1828] rounded-2xl shadow-2xl overflow-y-auto sm:overflow-hidden">
 
     <!-- LEFT PANEL -->
-    <div id="donation-modal-left" class="w-1/2 bg-[#0A1828] flex flex-col">
+    <div id="donation-modal-left" class="w-full sm:w-1/2 bg-[#0A1828] flex flex-col sm:h-full">
       <!-- Image -->
-      <div class="h-1/2">
+      <div class="h-1/3 sm:h-1/2 min-h-[150px]">
         <img src="donation.avif" alt="Campaign image" class="w-full h-full object-cover">
       </div>
       <!-- Text -->
-      <div class="h-1/2 overflow-y-auto p-6 space-y-4 text-gray-200 text-sm sm:text-base">
-        <h2 class="text-base sm:text-lg font-bold text-[#ecc714]">Help us reach 400,000 meals. Donate today.</h2>
+      <div class="h-auto sm:h-1/2 p-4 sm:p-6 space-y-4 text-gray-200 text-xs sm:text-sm md:text-base">
+        <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#ecc714]">Help us reach 400,000 meals. Donate today.</h2>
         <p><strong>Families Can’t Wait:</strong> Families in Palestine are waiting for relief that only you can provide. Every moment of hesitation means more children go hungry, more parents lose hope, and more lives are at risk.</p>
         <p><strong>100% MATW Project USA Donation Policy:</strong> Your $10 will be stretched beyond providing hot meals and clean water, by providing families with other essentials too.</p>
       </div>
     </div>
 
-    <!-- RIGHT PANEL: Wrapper for two pages -->
-    <div class="w-1/2 bg-[#0A1828] flex flex-col justify-between relative">
+    <!-- RIGHT PANEL: Wrapper for pages -->
+    <div class="w-full sm:w-1/2 bg-[#0A1828] flex flex-col justify-between h-auto sm:h-full">
 
       <!-- PAGE 1: Donation Form -->
-      <div id="donationFormPanel" class="flex flex-col justify-between h-full">
+      <div id="donationFormPanel" class="flex flex-col justify-between h-auto sm:h-full">
         <!-- Header -->
-        <div class="flex justify-between items-center px-6 py-4 border-b border-[#ecc714]">
-          <div class="text-lg font-semibold text-[#ecc714] flex items-center mx-auto gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#ecc714]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ecc714]">
+          <div class="text-sm sm:text-lg font-semibold text-[#ecc714] flex items-center mx-auto gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 text-[#ecc714]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.1-.9 2-2 2H8.5a1.5 1.5 0 100 3h7a1.5 1.5 0 100-3H14c-1.1 0-2-.9-2-2V7a1 1 0 00-2 0v4z" />
             </svg>
             Secure donation
           </div>
-          <button id="close-btn" class="text-xl text-gray-400 hover:text-red-500">×</button>
+          <button id="close-btn" class="text-lg sm:text-xl text-gray-400 hover:text-red-500">×</button>
         </div>
 
         <!-- Toggle -->
-        <div class="flex justify-center gap-2 px-6 pt-4">
-          <button id="once-btn" class="toggle-tab rounded-full px-4 py-2 text-sm font-semibold bg-[#0b1b82] text-white">Give once</button>
-          <button id="monthly-btn" class="toggle-tab rounded-full px-4 py-2 text-sm font-semibold bg-[#0A1828] text-gray-200 border border-[#ecc714]">Monthly</button>
+        <div class="flex justify-center gap-2 px-4 sm:px-6 pt-3 sm:pt-4">
+          <button id="once-btn" class="toggle-tab rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold bg-[#0b1b82] text-white">Give once</button>
+          <button id="monthly-btn" class="toggle-tab rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold bg-[#0A1828] text-gray-200 border border-[#ecc714]">Monthly</button>
         </div>
 
         <!-- Price Options -->
-        <div id="once-prices" class="grid grid-cols-3 gap-3 px-6 pt-4">
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦200K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦120K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦60K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦30K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦25K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦20K</button>
+        <div id="once-prices" class="grid grid-cols-3 gap-2 sm:gap-3 px-4 sm:px-6 pt-3 sm:pt-4">
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦200K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦120K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦60K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦30K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦25K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦20K</button>
         </div>
 
-        <div id="monthly-prices" class="grid grid-cols-3 gap-3 px-6 pt-4 hidden">
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦10K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦15K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦25K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦40K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦50K</button>
-          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-2 rounded-md">₦70K</button>
+        <div id="monthly-prices" class="grid grid-cols-3 gap-2 sm:gap-3 px-4 sm:px-6 pt-3 sm:pt-4 hidden">
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦10K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦15K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦25K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦40K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦50K</button>
+          <button class="price-btn bg-[#0b1b82] text-white font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦70K</button>
         </div>
 
         <!-- Custom Amount -->
-        <div class="px-6 pt-4">
-          <input id="amount-input" type="text" placeholder="₦40,000" class="w-full px-4 py-3 text-lg border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
+        <div class="px-4 sm:px-6 pt-3 sm:pt-4">
+          <input id="amount-input" type="text" placeholder="₦40,000" class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-lg border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
         </div>
 
         <!-- Dedication -->
-        <div class="px-6 pt-4 space-y-2">
-          <label class="flex items-center gap-2 text-sm text-gray-300">
-            <input type="checkbox" id="dedicate-check" class="h-4 w-4">
+        <div class="px-4 sm:px-6 pt-3 sm:pt-4 space-y-2">
+          <label class="flex items-center gap-2 text-xs sm:text-sm text-gray-300">
+            <input type="checkbox" id="dedicate-check" class="h-3 w-3 sm:h-4 sm:w-4">
             Dedicate this donation
           </label>
-          <input type="text" placeholder="Honoree name" class="w-full border border-[#ecc714] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
+          <input type="text" placeholder="Honoree name" class="w-full border border-[#ecc714] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm">
         </div>
 
         <!-- Donate Button -->
-        <div class="px-6 pt-6 pb-6">
-          <button onclick="handleDonateClick()" class="w-full bg-[#0b1b82] hover:bg-[#ecc714] text-white hover:text-[#0A1828] text-lg font-semibold py-3 rounded-lg transition">
+        <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
+          <button onclick="handleDonateClick()" class="w-full bg-[#0b1b82] hover:bg-[#ecc714] text-white hover:text-[#0A1828] text-sm sm:text-lg font-semibold py-2 sm:py-3 rounded-lg transition">
             Donate
           </button>
         </div>
       </div>
 
       <!-- PAGE 2: Monthly Support Suggestion -->
-      <div id="donationConfirmPanel" class="hidden flex flex-col justify-between h-full">
-        <div class="flex items-center gap-2 px-6 py-4 border-b border-[#ecc714]">
-          <button onclick="backToDonationForm()" class="text-gray-400 hover:text-[#ecc714] text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="text-lg font-semibold text-gray-200">Become a monthly supporter</h2>
+      <div id="donationConfirmPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
+        <div class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ecc714]">
+          <button onclick="backToDonationForm()" class="text-gray-400 hover:text-[#ecc714] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
+          <h2 class="text-sm sm:text-lg font-semibold text-gray-200">Become a monthly supporter</h2>
         </div>
-        <div class="flex-grow px-6 py-10 text-center flex flex-col justify-center items-center">
-          <p class="text-gray-200 text-base sm:text-lg mb-2">Will you convert your <strong>₦40,000</strong><br />contribution into a monthly donation?</p>
-          <p class="text-gray-400 text-sm sm:text-base max-w-xs">Your ongoing support can help us<br />focus better on our work.</p>
+        <div class="flex-grow px-4 sm:px-6 py-6 sm:py-10 text-center flex flex-col justify-center items-center">
+          <p class="text-gray-200 text-xs sm:text-base md:text-lg mb-2">Will you convert your <strong>₦40,000</strong><br />contribution into a monthly donation?</p>
+          <p class="text-gray-400 text-xs sm:text-sm md:text-base max-w-xs">Your ongoing support can help us<br />focus better on our work.</p>
         </div>
-        <div class="flex flex-col gap-4 px-6 pb-6">
-          <button class="bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-base sm:text-lg font-semibold py-3 rounded-lg transition">
+        <div class="flex flex-col gap-3 sm:gap-4 px-4 sm:px-6 pb-4 sm:pb-6">
+          <button class="bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-xs sm:text-base md:text-lg font-semibold py-2 sm:py-3 rounded-lg transition">
             ❤️ Donate ₦16,020/month
           </button>
-          <button onclick="backToDonationForm()" class="text-sm text-[#ecc714] underline hover:text-white">
+          <button onclick="backToDonationForm()" class="text-xs sm:text-sm text-[#ecc714] underline hover:text-white">
             No, keep my one-time ₦40,000 gift
           </button>
         </div>
       </div>
 
       <!-- PAGE 3: Monthly Details Form -->
-      <div id="donationMonthlyFormPanel" class="hidden flex flex-col justify-between h-full">
-        <div class="flex items-center gap-2 px-6 py-4 border-b border-[#ecc714]">
-          <button onclick="backToDonationForm()" class="text-gray-400 hover:text-[#ecc714] text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="text-lg font-semibold text-gray-200">Monthly Donation Details</h2>
+      <div id="donationMonthlyFormPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
+        <div class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ecc714]">
+          <button onclick="backToDonationForm()" class="text-gray-400 hover:text-[#ecc714] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
+          <h2 class="text-sm sm:text-lg font-semibold text-gray-200">Monthly Donation Details</h2>
         </div>
-        <div class="flex-grow px-6 py-6 overflow-y-auto">
-          <div class="space-y-4">
+        <div class="flex-grow px-4 sm:px-6 py-4 sm:py-6">
+          <div class="space-y-3 sm:space-y-4">
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-1">First Name</label>
-              <input type="text" class="w-full border border-[#ecc714] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800" />
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">First Name</label>
+              <input type="text" class="w-full border border-[#ecc714] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-1">Last Name</label>
-              <input type="text" class="w-full border border-[#ecc714] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800" />
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Last Name</label>
+              <input type="text" class="w-full border border-[#ecc714] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-              <input type="email" class="w-full border border-[#ecc714] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800" />
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Email Address</label>
+              <input type="email" class="w-full border border-[#ecc714] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Phone Number</label>
               <div class="flex gap-2">
-                <select class="border border-[#ecc714] rounded-md px-2 py-2 focus:ring-2 focus:ring-[#ecc714] text-gray-800">
+                <select class="border border-[#ecc714] rounded-md px-2 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] text-gray-800 text-xs sm:text-sm">
                   <option value="+234">🇳🇬 +234</option>
                   <option value="+1">🇺🇸 +1</option>
                   <option value="+44">🇬🇧 +44</option>
@@ -171,80 +171,80 @@
                   <option value="+971">🇦🇪 +971</option>
                   <option value="+20">🇪🇬 +20</option>
                 </select>
-                <input type="tel" class="flex-grow border border-[#ecc714] rounded-md px-3 py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800" placeholder="8123456789" />
+                <input type="tel" class="flex-grow border border-[#ecc714] rounded-md px-2 sm:px-3 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm" placeholder="8123456789" />
               </div>
             </div>
-            <label class="flex items-center gap-2 text-sm text-gray-300 mt-2">
-              <input type="checkbox" class="h-4 w-4 text-[#ecc714]">
+            <label class="flex items-center gap-2 text-xs sm:text-sm text-gray-300 mt-2">
+              <input type="checkbox" class="h-3 w-3 sm:h-4 sm:w-4 text-[#ecc714]">
               Donate anonymously
             </label>
           </div>
         </div>
-        <div class="px-6 pb-6">
-          <button onclick="goToPaymentPanel()" class="w-full bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-lg font-semibold py-3 rounded-lg transition">
+        <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+          <button onclick="goToPaymentPanel()" class="w-full bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-sm sm:text-lg font-semibold py-2 sm:py-3 rounded-lg transition">
             Continue
           </button>
         </div>
       </div>
 
       <!-- PAGE 4: Payment Method Panel -->
-      <div id="donationPaymentPanel" class="hidden flex flex-col justify-between h-full">
+      <div id="donationPaymentPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
         <!-- Header -->
-        <div class="flex items-center gap-3 px-6 py-4 border-b border-[#ecc714]">
-          <button onclick="backToMonthlyForm()" class="text-gray-400 hover:text-[#ecc714] text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="text-lg font-semibold text-gray-200">You Donate</h2>
+        <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ecc714]">
+          <button onclick="backToMonthlyForm()" class="text-gray-400 hover:text-[#ecc714] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
+          <h2 class="text-sm sm:text-lg font-semibold text-gray-200">You Donate</h2>
         </div>
 
         <!-- Payment Method Form -->
-        <div class="flex-grow px-6 py-6 overflow-y-auto space-y-4">
+        <div class="flex-grow px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4">
           <div>
-            <label class="block text-sm font-medium text-gray-300 mb-1">Payment Method</label>
-            <div class="flex items-center gap-4">
+            <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Payment Method</label>
+            <div class="flex items-center gap-3 sm:gap-4">
               <label class="flex items-center gap-2">
-                <input type="radio" name="payment-method" checked class="form-radio text-[#ecc714]">
-                <span class="text-gray-200">Credit Card</span>
+                <input type="radio" name="payment-method" checked class="form-radio text-[#ecc714] h-3 w-3 sm:h-4 sm:w-4">
+                <span class="text-gray-200 text-xs sm:text-sm">Credit Card</span>
               </label>
               <label class="flex items-center gap-2">
-                <input type="radio" name="payment-method" class="form-radio text-[#ecc714]">
-                <span class="text-gray-200">Google Pay</span>
+                <input type="radio" name="payment-method" class="form-radio text-[#ecc714] h-3 w-3 sm:h-4 sm:w-4">
+                <span class="text-gray-200 text-xs sm:text-sm">Google Pay</span>
               </label>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-300 mb-1">Card Number</label>
+            <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Card Number</label>
             <div class="relative">
-              <input type="text" placeholder="1234 5678 9012 3456" class="w-full px-4 py-3 text-lg border border-[#ecc714] rounded-md pr-14 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Card logo" class="absolute top-1/2 right-4 transform -translate-y-1/2 h-6">
+              <input type="text" placeholder="1234 5678 9012 3456" class="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-lg border border-[#ecc714] rounded-md pr-10 sm:pr-14 focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Card logo" class="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 h-4 sm:h-6">
             </div>
           </div>
 
-          <div class="flex gap-4">
+          <div class="flex gap-2 sm:gap-4">
             <div class="w-1/2">
-              <label class="block text-sm font-medium text-gray-300 mb-1">Expiry Date</label>
-              <input type="text" placeholder="MM / YY" class="w-full px-4 py-3 border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Expiry Date</label>
+              <input type="text" placeholder="MM / YY" class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm">
             </div>
             <div class="w-1/2">
-              <label class="block text-sm font-medium text-gray-300 mb-1">CVC</label>
-              <input type="text" placeholder="123" class="w-full px-4 py-3 border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800">
+              <label class="block text-xs sm:text-sm font-medium text-gray-300 mb-1">CVC</label>
+              <input type="text" placeholder="123" class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-[#ecc714] rounded-md focus:ring-2 focus:ring-[#ecc714] focus:outline-none text-gray-800 text-xs sm:text-sm">
             </div>
           </div>
 
           <!-- Cover Transaction Cost -->
-          <label class="flex items-center gap-2 text-sm text-gray-300 mt-2">
-            <input type="checkbox" class="h-4 w-4 text-[#ecc714]">
+          <label class="flex items-center gap-2 text-xs sm:text-sm text-gray-300 mt-2">
+            <input type="checkbox" class="h-3 w-3 sm:h-4 sm:w-4 text-[#ecc714]">
             Cover transaction costs
           </label>
 
           <!-- Total -->
-          <div class="bg-[#0b1b82] border border-[#ecc714] rounded-lg px-4 py-3 text-gray-200 font-semibold text-base">
+          <div class="bg-[#0b1b82] border border-[#ecc714] rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-200 font-semibold text-xs sm:text-base">
             Total to Pay: <span class="text-[#ecc714] font-bold">₦40,000</span>
           </div>
         </div>
 
         <!-- Donate Button -->
-        <div class="px-6 pb-6">
-          <button class="w-full bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-lg font-semibold py-3 rounded-lg transition">
+        <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+          <button class="w-full bg-gradient-to-r from-[#0b1b82] to-[#ecc714] hover:from-[#ecc714] hover:to-[#0b1b82] text-white text-sm sm:text-lg font-semibold py-2 sm:py-3 rounded-lg transition">
             Donate
           </button>
         </div>
@@ -500,7 +500,7 @@
   </div>
 </div>
 
-<div class="bg-gradient-to-r from-[#0A1828] via-[#0b1b82] to-[#ecc714] py-12 px-4 sm:px-6">
+<div class="bg-gradient-to-r from-[#0b1b82] to-[#0A1828] py-12 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
       <!-- Left Side Content -->
       <div class="lg:col-span-2 bg-gray-100 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 lg:p-10 backdrop-blur-sm bg-gray-100/90">
