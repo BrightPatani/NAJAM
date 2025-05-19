@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    
     body {
       font-family: "Ubuntu", sans-serif;
       font-weight: 500;
@@ -29,6 +28,27 @@
     }
     .animate-pulse-glow {
       animation: pulseGlow 1.3s infinite;
+    }
+    .price-btn {
+      background-color: transparent;
+      border: 2px solid #d71e28;
+      color: #0A1828;
+      transition: all 0.3s;
+    }
+    .price-btn:hover {
+      background-color: #fdd200;
+      border-color: #0b1b82;
+      transform: scale(1.05);
+    }
+    .price-btn.active {
+      background-color: #d71e28;
+      color: #ffffff;
+      border-color: #d71e28;
+    }
+    .toggle-tab.active {
+      background-color: #0b1b82;
+      color: #ffffff;
+      border-color: #fdd200;
     }
   </style>
 </head>
@@ -66,7 +86,7 @@
     </div>
 
     <!-- RIGHT PANEL: Wrapper for pages -->
-    <div class="w-full sm:w-1/2 bg-[#fdd200]/20 flex flex-col justify-between h-auto sm:h-full backdrop-blur-md">
+    <div id="rightPanel" class="w-full sm:w-1/2 bg-[#fdd200]/20 flex flex-col justify-between h-auto sm:h-full backdrop-blur-md relative">
 
       <!-- PAGE 1: Donation Form -->
       <div id="donationFormPanel" class="flex flex-col justify-between h-auto sm:h-full">
@@ -541,7 +561,7 @@
 </div>
 
 <div class="max-w-7xl mx-auto p-6 sm:p-8">
-  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[#d71e28] mb-10 sm:mb-12 animate-slide-in">OUR SUPPORTERS</h1>
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[#d71e28] mb-10 sm:mb-12 expectslide-in">OUR SUPPORTERS</h1>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
     <div class="relative group hover:scale-105 transition-transform duration-300 hover:shadow-2xl">
       <img src="supporter1.avif" alt="" class="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-3xl shadow-lg">
@@ -580,170 +600,168 @@
 
 <script>
   // Select elements
-const onceBtn = document.getElementById('once-btn');
-const monthlyBtn = document.getElementById('monthly-btn');
-const oncePrices = document.getElementById('once-prices');
-const monthlyPrices = document.getElementById('monthly-prices');
-const rightPanel = document.querySelector('#donation-modal .w-1\\/2');
-const closeBtn = document.getElementById('close-btn');
+  const onceBtn = document.getElementById('once-btn');
+  const monthlyBtn = document.getElementById('monthly-btn');
+  const oncePrices = document.getElementById('once-prices');
+  const monthlyPrices = document.getElementById('monthly-prices');
+  const rightPanel = document.getElementById('rightPanel');
+  const closeBtn = document.getElementById('close-btn');
 
-let isEmailPromptVisible = false;
-let activeToggle = 'once'; // Track active toggle ('once' or 'monthly')
+  let isEmailPromptVisible = false;
+  let activeToggle = 'once'; // Track active toggle ('once' or 'monthly')
 
-// Toggle donation type
-function setActiveToggle(toggle) {
-  activeToggle = toggle;
-  if (toggle === 'once') {
-    onceBtn.classList.add('bg-[#fdd200]', 'text-[#0A1828]', 'border-[#0b1b82]');
-    onceBtn.classList.remove('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
-    monthlyBtn.classList.remove('bg-[#0b1b82]', 'text-[#ffffff]', 'border-[#fdd200]');
-    monthlyBtn.classList.add('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
-    oncePrices.classList.remove('hidden');
-    monthlyPrices.classList.add('hidden');
-  } else {
-    monthlyBtn.classList.add('bg-[#0b1b82]', 'text-[#ffffff]', 'border-[#fdd200]');
-    monthlyBtn.classList.remove('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
-    onceBtn.classList.remove('bg-[#fdd200]', 'text-[#0A1828]', 'border-[#0b1b82]');
-    onceBtn.classList.add('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
-    oncePrices.classList.add('hidden');
-    monthlyPrices.classList.remove('hidden');
+  // Toggle donation type
+  function setActiveToggle(toggle) {
+    activeToggle = toggle;
+    if (toggle === 'once') {
+      onceBtn.classList.add('bg-[#fdd200]', 'text-[#0A1828]', 'border-[#0b1b82]');
+      onceBtn.classList.remove('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
+      monthlyBtn.classList.remove('bg-[#0b1b82]', 'text-[#ffffff]', 'border-[#fdd200]');
+      monthlyBtn.classList.add('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
+      oncePrices.classList.remove('hidden');
+      monthlyPrices.classList.add('hidden');
+    } else {
+      monthlyBtn.classList.add('bg-[#0b1b82]', 'text-[#ffffff]', 'border-[#fdd200]');
+      monthlyBtn.classList.remove('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
+      onceBtn.classList.remove('bg-[#fdd200]', 'text-[#0A1828]', 'border-[#0b1b82]');
+      onceBtn.classList.add('bg-transparent', 'text-[#0A1828]', 'border-[#0b1b82]');
+      oncePrices.classList.add('hidden');
+      monthlyPrices.classList.remove('hidden');
+    }
   }
-}
 
-onceBtn.addEventListener('click', () => setActiveToggle('once'));
-monthlyBtn.addEventListener('click', () => setActiveToggle('monthly'));
+  onceBtn.addEventListener('click', () => setActiveToggle('once'));
+  monthlyBtn.addEventListener('click', () => setActiveToggle('monthly'));
 
-// Style and handle preset price buttons
-document.querySelectorAll('.price-btn').forEach(button => {
-  button.classList.add(
-    'bg-transparent',
-    'hover:bg-[#fdd200]',
-    'rounded-lg',
-    'px-4',
-    'py-3',
-    'font-semibold',
-    'text-[#0A1828]',
-    'hover:text-[#0A1828]',
-    'text-center',
-    'transition',
-    'duration-200',
-    'border-2',
-    'hover:border-2',
-    'border-[#d71e28]',
-    'hover:border-[#0b1b82]',
-    'text-sm'
-  );
+  // Style and handle preset price buttons
+  document.querySelectorAll('.price-btn').forEach(button => {
+    button.classList.add(
+      'bg-transparent',
+      'hover:bg-[#fdd200]',
+      'rounded-lg',
+      'px-4',
+      'py-3',
+      'font-semibold',
+      'text-[#0A1828]',
+      'hover:text-[#0A1828]',
+      'text-center',
+      'transition',
+      'duration-200',
+      'border-2',
+      'hover:border-2',
+      'border-[#d71e28]',
+      'hover:border-[#0b1b82]',
+      'text-sm'
+    );
 
-  button.addEventListener('click', () => {
-    // Remove active state from all buttons
-    document.querySelectorAll('.price-btn').forEach(btn => {
-      btn.classList.remove('bg-[#d71e28]', 'text-white');
-      btn.classList.add('bg-transparent', 'text-[#0A1828]');
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.price-btn').forEach(btn => {
+        btn.classList.remove('bg-[#d71e28]', 'text-white');
+        btn.classList.add('bg-transparent', 'text-[#0A1828]');
+      });
+      button.classList.add('bg-[#d71e28]', 'text-white');
+      button.classList.remove('bg-transparent', 'text-[#0A1828]');
+      const raw = button.textContent.replace(/[^0-9K]/g, '');
+      const amount = parseInt(raw.replace('K', '000'));
+      document.getElementById('amount-input').value = `₦${amount.toLocaleString()}`;
     });
-    // Add active state to clicked button
-    button.classList.add('bg-[#d71e28]', 'text-white');
-    button.classList.remove('bg-transparent', 'text-[#0A1828]');
-    const raw = button.textContent.replace(/[^\d]/g, '000');
-    document.getElementById('amount-input').value = `₦${parseInt(raw).toLocaleString()}`;
   });
-});
 
-// Close button logic
-closeBtn.addEventListener('click', () => {
-  if (!isEmailPromptVisible) {
-    // Show email prompt
-    rightPanel.innerHTML = `
-      <div class="w-full h-full bg-[#0A1828] text-white flex flex-col items-center justify-center p-6 space-y-6">
-        <h2 class="text-lg font-semibold text-[#fdd200]">Maybe next time?</h2>
+  // Close button logic with overlay
+  closeBtn.addEventListener('click', () => {
+    if (!isEmailPromptVisible) {
+      const overlay = document.createElement('div');
+      overlay.className = 'absolute inset-0 bg-[#fdd200] backdrop-blur-md z-10 flex flex-col items-center justify-center p-6 space-y-6';
+      overlay.innerHTML = `
+        <h2 class="text-lg font-semibold text-[#d71e28]">Maybe next time?</h2>
         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Reminder Bell" class="w-16 h-16">
-        <p class="text-center text-sm text-gray-300">Please leave your email address below, and we'll send you a gentle reminder later.</p>
-        <input type="email" placeholder="Email address" class="w-full max-w-xs px-4 py-2 rounded-md border border-[#fdd200] bg-[#0A1828] text-white focus:outline-none focus:ring-2 focus:ring-[#fdd200]">
-        <button class="w-full max-w-xs bg-[#0b1b82] hover:bg-[#fdd200] text-white hover:text-[#0A1828] font-semibold py-2 rounded-md">Remind me later</button>
-        <button id="final-close" class="w-full max-w-xs bg-gray-100 text-gray-700 font-semibold py-2 rounded-md">No, thanks</button>
-      </div>
-    `;
-    isEmailPromptVisible = true;
+        <p class="text-center text-sm text-[#0A1828]">Please leave your email address below, and we'll send you a gentle reminder later.</p>
+        <input type="email" placeholder="Email address" class="w-full max-w-xs px-4 py-2 rounded-md border border-[#d71e28] bg-transparent text-[#0A1828] focus:outline-none focus:ring-2 focus:ring-[#d71e28]">
+        <button class="w-full max-w-xs bg-[#0b1b82] hover:bg-[#fdd200] text-white hover:text-[#0A1828] hover:border hover:border-[#0b1b82] font-semibold py-2 rounded-md transition-all duration-300">Remind me later</button>
+        <button id="final-close" class="w-full max-w-xs bg-gray-200 text-[#0A1828] font-semibold py-2 rounded-md hover:bg-gray-300 transition-all duration-300">No, thanks</button>
+      `;
+      rightPanel.appendChild(overlay);
+      isEmailPromptVisible = true;
 
-    // Attach final close button
-    document.getElementById('final-close').addEventListener('click', () => {
-      toggleModal(false);
-      isEmailPromptVisible = false;
-    });
-  } else {
-    // Close modal on second click
-    toggleModal(false);
-    isEmailPromptVisible = false;
+      document.getElementById('final-close').addEventListener('click', () => {
+        rightPanel.removeChild(overlay);
+        isEmailPromptVisible = false;
+        toggleModal(false);
+      });
+    }
+  });
+
+  // Trigger modal open for donation-related buttons and links
+  document.querySelectorAll('button, a').forEach(element => {
+    const text = element.textContent.toLowerCase();
+    const href = element.getAttribute('href')?.toLowerCase() || '';
+    const isModalTrigger = (
+      text.includes('donate') ||
+      text.includes('zakat') ||
+      text.includes('meal') ||
+      href.includes('#donate')
+    );
+    const isExcluded = (
+      element.id === 'close-btn' ||
+      element.id === 'once-btn' ||
+      element.id === 'monthly-btn' ||
+      element.classList.contains('price-btn') ||
+      element.parentElement.parentElement.id === 'donationConfirmPanel' ||
+      element.parentElement.parentElement.id === 'donationMonthlyFormPanel' ||
+      element.parentElement.parentElement.id === 'donationPaymentPanel' ||
+      element.id === 'final-close' ||
+      element.textContent.toLowerCase().includes('remind me later')
+    );
+
+    if (isModalTrigger && !isExcluded) {
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleModal(true);
+        isEmailPromptVisible = false;
+        setActiveToggle('once');
+      });
+    }
+  });
+
+  function toggleModal(show) {
+    document.getElementById('donation-modal').classList.toggle('hidden', !show);
   }
-});
 
-// Trigger modal open for donation-related buttons and links
-document.querySelectorAll('button, a').forEach(element => {
-  const text = element.textContent.toLowerCase();
-  const href = element.getAttribute('href')?.toLowerCase() || '';
-  const isModalTrigger = (
-    text.includes('donate') ||
-    text.includes('zakat') ||
-    text.includes('meal') ||
-    href.includes('#donate')
-  );
-  const isExcluded = (
-    element.id === 'close-btn' ||
-    element.id === 'once-btn' ||
-    element.id === 'monthly-btn' ||
-    element.classList.contains('price-btn') ||
-    element.parentElement.parentElement.id === 'donationConfirmPanel' ||
-    element.parentElement.parentElement.id === 'donationMonthlyFormPanel' ||
-    element.parentElement.parentElement.id === 'donationPaymentPanel' ||
-    element.id === 'final-close' ||
-    element.textContent.toLowerCase().includes('remind me later')
-  );
-
-  if (isModalTrigger && !isExcluded) {
-    element.addEventListener('click', (e) => {
-      e.preventDefault();
-      toggleModal(true);
-      isEmailPromptVisible = false;
-      setActiveToggle('once'); // Reset to "Give once" on modal open
-    });
+  function handleDonateClick() {
+    document.getElementById('donationFormPanel').classList.add('hidden');
+    if (activeToggle === 'once') {
+      document.getElementById('donationConfirmPanel').classList.remove('hidden');
+      document.getElementById('donationMonthlyFormPanel').classList.add('hidden');
+      document.getElementById('donationPaymentPanel').classList.add('hidden');
+    } else {
+      document.getElementById('donationMonthlyFormPanel').classList.remove('hidden');
+      document.getElementById('donationConfirmPanel').classList.add('hidden');
+      document.getElementById('donationPaymentPanel').classList.add('hidden');
+    }
   }
-});
 
-function toggleModal(show) {
-  document.getElementById('donation-modal').classList.toggle('hidden', !show);
-}
-
-function handleDonateClick() {
-  document.getElementById('donationFormPanel').classList.add('hidden');
-  if (activeToggle === 'once') {
-    document.getElementById('donationConfirmPanel').classList.remove('hidden');
+  function backToDonationForm() {
+    document.getElementById('donationFormPanel').classList.remove('hidden');
+    document.getElementById('donationConfirmPanel').classList.add('hidden');
     document.getElementById('donationMonthlyFormPanel').classList.add('hidden');
     document.getElementById('donationPaymentPanel').classList.add('hidden');
-  } else {
-    document.getElementById('donationMonthlyFormPanel').classList.remove('hidden');
-    document.getElementById('donationConfirmPanel').classList.add('hidden');
-    document.getElementById('donationPaymentPanel').classList.add('hidden');
   }
-}
 
-function backToDonationForm() {
-  document.getElementById('donationFormPanel').classList.remove('hidden');
-  document.getElementById('donationConfirmPanel').classList.add('hidden');
-  document.getElementById('donationMonthlyFormPanel').classList.add('hidden');
-  document.getElementById('donationPaymentPanel').classList.add('hidden');
-}
+  function goToPaymentPanel() {
+    document.getElementById('donationMonthlyFormPanel').classList.add('hidden');
+    document.getElementById('donationPaymentPanel').classList.remove('hidden');
+  }
 
-function goToPaymentPanel() {
-  document.getElementById('donationMonthlyFormPanel').classList.add('hidden');
-  document.getElementById('donationPaymentPanel').classList.remove('hidden');
-}
+  function backToMonthlyForm() {
+    document.getElementById('donationPaymentPanel').classList.add('hidden');
+    document.getElementById('donationMonthlyFormPanel').classList.remove('hidden');
+  }
 
-function backToMonthlyForm() {
-  document.getElementById('donationPaymentPanel').classList.add('hidden');
-  document.getElementById('donationMonthlyFormPanel').classList.remove('hidden');
-}
+  // Initialize toggle state
+  setActiveToggle('once');
 
-// Initialize toggle state
-setActiveToggle('once');
+  // Show modal on page load for demo purposes
+  toggleModal(true);
 </script>
 
 </body>
