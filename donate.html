@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Donation Page</title>
+<style>
+    body {
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+</style>
+</head>
+<body>
+<header class="bg-[#d71e28]  px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md">
+  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
+    
+    <!-- Left: Logo -->
+    <div class="flex items-center space-x-6">
+      <img src="logo.avif" alt="Najam Logo" class="h-12 w-auto sm:h-16 transition-transform duration-300 hover:scale-110 hover:rotate-3">
+    </div>
+
+    <!-- Mobile menu button (only visible below md) -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none text-3xl">
+        ☰
+      </button>
+    </div>
+
+    <!-- Navigation + Donate -->
+    <div id="nav-menu" class="w-full md:flex md:items-center md:w-auto hidden flex-col md:flex-row gap-4 md:gap-8 mt-4 md:mt-0">
+      <nav class="flex flex-col md:flex-row gap-4 md:gap-8 text-white text-lg font-semibold text-center md:text-left">
+        <a href="/index.html" class="hover:text-[#fdd200]">Home</a>
+        <a href="/about.html" class="hover:text-[#fdd200]">About Us</a>
+        <a href="/projects.html" class="hover:text-[#fdd200]">Our Projects</a>
+      </nav>
+      <a href="/donate.html" class="flex items-center space-x-2 bg-[#0b1b82] text-white border border-[#fdd200] px-4 py-2 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-x-1">
+        <span class="text-xl sm:text-2xl">❤️</span>
+        <span>Donate Now</span>
+      </a>
+    </div>
+  </div>
+</header>
+  <!-- Mobile-only Top Image -->
+<div  class="sm:bg-[url('background.webp')] sm:bg-cover sm:bg-center sm:min-h-screen sm:flex sm:items-center sm:justify-center bg-white">
+  <div class="block sm:hidden w-full h-48 bg-cover bg-center" style="background-image: url('background.webp');"></div>
+  <!-- Donation Form -->
+  <div class="bg-[#ffffff] bg-opacity-95 shadow-2xl rounded-lg max-w-md w-full mx-auto p-6 sm:p-8 sm:my-8 sm:backdrop-blur-md">
+    <h2 class="text-xl sm:text-2xl font-semibold text-[#d71e28] mb-3">
+      Your donation will help hope find a way in Palestine, Lebanon and Jordan
+    </h2>
+    <p class="text-[#0A1828] mb-4 text-sm sm:text-base">
+      NAJAM is responding to the <strong>immense humanitarian need</strong> in Gaza, the West Bank, East Jerusalem, and Lebanon. Your donation will <strong>provide immediate and sustainable relief</strong> in Palestine, Lebanon and Jordan.
+    </p>
+    <p class="text-[#0A1828] text-sm sm:text-base mb-4">
+      <strong>Monthly donations</strong> are the best way to sustain NAJAM's core programs and help us respond quickly in times of crisis.
+    </p>
+
+
+    <!-- FastAction Banner -->
+    <div class="bg-[#f3f4f6] border border-[#f3f4f6] rounded px-4 py-3 mb-6 flex items-center justify-between flex-wrap sm:flex-nowrap gap-4">
+    <div class="text-sm text-[#0A1828]">
+        Take future action with a single click. 
+        <strong><a href="#" class="text-black hover:text-[#d71e28]">Log in</a></strong> or 
+        <strong><a href="#" class="text-black hover:text-[#d71e28]">Sign up</a></strong> for 
+        <em class="italic text-black">Fast<strong>Action</strong></em>
+    </div>
+    <div class="flex items-center gap-2">
+        <a href="#" class="inline-block">
+        <img src="fast-action.svg" alt="FastAction Logo" class="h-6 sm:h-7">
+        </a>
+        <a href="#" class="text-gray-500 text-xl leading-none hover:text-[#0A1828]">?</a>
+    </div>
+    </div>
+
+
+    <!-- Gift Information -->
+    <h3 class="text-xl font-semibold text-[#0A1828] mb-2">Gift Information</h3>
+
+    <!-- Monthly / One-time Toggle -->
+    <div class="flex items-center gap-4 mb-4">
+      <label class="flex items-center gap-1 text-sm">
+        <input type="radio" name="donation-type" value="monthly" checked class="accent-blue-600">
+        Monthly
+      </label>
+      <label class="flex items-center gap-1 text-sm">
+        <input type="radio" name="donation-type" value="onetime" class="accent-blue-600">
+        One-Time
+      </label>
+    </div>
+
+    <!-- Donation Options -->
+    <div class="grid grid-cols-3 gap-2 mb-4" id="preset-amounts">
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$35</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$50</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$100</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$250</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$500</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$1,000</button>
+    </div>
+
+    <!-- Custom amount input -->
+    <input type="number" id="custom-amount" placeholder="$0.00" class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
+
+    <!-- Transaction fee checkbox -->
+    <div class="flex items-start gap-2 mb-4">
+      <input type="checkbox" id="cover-fee" checked class="accent-blue-600 mt-1">
+      <p class="text-sm text-[#0A1828]">I'd like to help cover the transaction fees for my donation. Your total amount will be <strong id="total-display">$51.83</strong>.</p>
+    </div>
+
+    <!-- Payment Buttons -->
+    <div class="grid gap-2">
+      <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white px-2 py-2 hover:text-[#0A1828]">Pay with Bank Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- Donation Security Footer -->
+<div class="max-w-2xl mx-auto mt-12 text-center px-4 sm:px-0">
+  <h3 class="text-lg font-bold mb-2 text-[#0A1828]">Your donation is 100% secure and tax-deductible</h3>
+
+  <!-- Trust Logos -->
+  <div class="flex flex-wrap justify-center items-center gap-6 mb-6">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="charity.png" alt="Charity Navigator" class="h-16 sm:h-16">
+    </a>
+    <a href="#" target="_blank" rel="noopener">
+      <img src="platinum.png" alt="Candid Platinum Transparency" class="h-16 sm:h-16">
+    </a>
+    <a href="#" target="_blank" rel="noopener">
+      <img src="top.jpg" alt="Charity Watch Top Rated" class="h-16 sm:h-16">
+    </a>
+    <a href="#" target="_blank" rel="noopener">
+      <img src="accredited.png" alt="BBB Accredited Charity" class="h-16 sm:h-16">
+    </a>
+  </div>
+</div>
+
+
+  <!-- JavaScript logic -->
+  <script>
+    const amountButtons = document.querySelectorAll('.amount-btn');
+    const customAmount = document.getElementById('custom-amount');
+    const totalDisplay = document.getElementById('total-display');
+    const coverFeeCheckbox = document.getElementById('cover-fee');
+
+        //mobile menu toggle for the header
+   document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('hidden');
+    });
+
+
+    /*Helper function to parse currency values from string to float*/
+    function parseAmount(value) {
+      return parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+    }
+
+    function updateTotal(amount) {
+      const fee = coverFeeCheckbox.checked ? amount * 0.036 + 0.3 : 0;
+      const total = amount + fee;
+      totalDisplay.textContent = `$${total.toFixed(2)}`;
+    }
+
+    amountButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountButtons.forEach(b => b.classList.remove('bg-[#d71e28]', 'text-white'));
+        btn.classList.add('bg-[#d71e28]', 'text-white');
+        customAmount.value = '';
+        updateTotal(parseAmount(btn.textContent));
+      });
+    });
+
+    customAmount.addEventListener('input', () => {
+      amountButtons.forEach(b => b.classList.remove('bg-[#d71e28]', 'text-white'));
+      updateTotal(parseAmount(customAmount.value));
+    });
+
+    coverFeeCheckbox.addEventListener('change', () => {
+      const activeBtn = Array.from(amountButtons).find(b => b.classList.contains('bg-[#d71e28]'));
+      const amount = customAmount.value ? parseAmount(customAmount.value) : (activeBtn ? parseAmount(activeBtn.textContent) : 0);
+      updateTotal(amount);
+    });
+
+    // Init with $50
+    updateTotal(50);
+  </script>
+</body>
+
+</html>

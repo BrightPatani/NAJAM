@@ -52,294 +52,83 @@
     }
   </style>
 </head>
-<body class="bg-[#ffffff] text-rose-800">
+<body>
   <!-- Header -->
-<header class="bg-[#d71e28] py-6 px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md mb-2-#ffffff">
-  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-    <!-- Left: Logos -->
+<header class="bg-[#d71e28] px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md">
+  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
+    
+    <!-- Left: Logo -->
     <div class="flex items-center space-x-6">
       <img src="logo.avif" alt="Najam Logo" class="h-12 w-auto sm:h-16 transition-transform duration-300 hover:scale-110 hover:rotate-3">
     </div>
-    <!-- Right: Donate Button -->
-    <a href="#donate" class="flex items-center space-x-2 bg-[#0b1b82] text-[#ffffff] border border-[#fdd200] px-6 py-3 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-100 transition-all duration-300 transform hover:-translate-x-1">
-      <span class="text-xl sm:text-2xl">❤️</span>
-      <span>Donate Now</span>
-    </a>
+
+    <!-- Mobile menu button (only visible below md) -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none text-3xl">
+        ☰
+      </button>
+    </div>
+
+    <!-- Navigation + Donate -->
+    <div id="nav-menu" class="w-full md:flex md:items-center md:w-auto hidden flex-col md:flex-row gap-4 md:gap-8 mt-4 md:mt-0">
+      <nav class="flex flex-col md:flex-row gap-4 md:gap-8 text-white text-lg font-semibold text-center md:text-left">
+        <a href="/index.html" class="hover:text-[#fdd200]">Home</a>
+        <a href="/about.html" class="hover:text-[#fdd200]">About Us</a>
+        <a href="/projects.html" class="hover:text-[#fdd200]">Our Projects</a>
+      </nav>
+      <a href="/donate.html" class="flex items-center space-x-2 bg-[#0b1b82] text-white border border-[#fdd200] px-4 py-2 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-x-1">
+        <span class="text-xl sm:text-2xl">❤️</span>
+        <span>Donate Now</span>
+      </a>
+    </div>
   </div>
 </header>
 
-<!-- modal -->
-<div id="donation-modal" class="fixed inset-0 bg-transparent backdrop-blur-md z-50 hidden flex items-center justify-center p-4 sm:p-4" role="dialog" aria-modal="true">
-  <div class="flex flex-col sm:flex-row w-full max-w-[95vw] sm:max-w-5xl h-[95vh] sm:h-[95vh] max-h-[95vh] bg-[#ffffff] rounded-2xl shadow-2xl overflow-y-auto sm:overflow-hidden">
-    <!-- LEFT PANEL -->
-    <div id="donation-modal-left" class="w-full sm:w-1/2 bg-[#ffffff] p-2 flex flex-col sm:h-full">
-      <!-- Image -->
-      <div class="h-1/3 sm:h-1/2 min-h-[150px]">
-        <img src="donation.avif" alt="Campaign image" class="w-full h-full object-cover p-2">
-      </div>
-      <!-- Text -->
-      <div class="h-auto sm:h-1/2 p-4 sm:p-6 space-y-4 text-gray-200 text-xs sm:text-sm md:text-base">
-        <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#d71e28]">Help us reach 400,000 meals. Donate today.</h2>
-        <p class="text-[#0A1828]"><strong class="text-[#d71e28]">Families Can’t Wait:</strong> Families in Palestine are waiting for relief that only you can provide. Every moment of hesitation means more children go hungry, more parents lose hope, and more lives are at risk.</p>
-        <p class="text-[#0A1828]"><strong class="text-[#d71e28]">100% MATW Project USA Donation Policy:</strong> Your $10 will be stretched beyond providing hot meals and clean water, by providing families with other essentials too.</p>
-      </div>
-    </div>
-
-    <!-- RIGHT PANEL: Wrapper for pages -->
-    <div id="rightPanel" class="w-full sm:w-1/2 bg-[#fdd200]/20 flex flex-col justify-between h-auto sm:h-full backdrop-blur-md relative">
-
-      <!-- PAGE 1: Donation Form -->
-      <div id="donationFormPanel" class="flex flex-col justify-between h-auto sm:h-full">
-        <!-- Header -->
-        <div class="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b border-[#fdd200]">
-          <div class="text-lg sm:text-lg font-semibold text-[#d71e28] flex items-center mx-auto gap-2">
-            Secure donation
-          </div>
-          <button id="close-btn" class="text-lg sm:text-xl text-gray-400 hover:text-[#d71e28]">×</button>
-        </div>
-
-        <!-- Toggle -->
-        <div class="flex justify-center gap-2 px-4 sm:px-6 pt-3 sm:pt-4">
-          <button id="once-btn" class="toggle-tab hover:bg-[#fdd200] text-[#0A1828] border border-[#0b1b82] hover:border hover:border-[#0b1b82] hover:text-[#0A1828] font-bold px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-300 hover:scale-105">Give once</button>
-          <button id="monthly-btn" class="toggle-tab hover:bg-[#0b1b82] text-[#0A1828] border border-[#0b1b82] hover:border hover:border-[#fdd200] hover:text-[#ffffff] font-bold px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-300 hover:scale-105">Monthly</button>
-        </div>
-
-        <!-- Price Options -->
-        <div id="once-prices" class="grid grid-cols-3 gap-2 sm:gap-3 px-4 sm:px-6 pt-3 sm:pt-4">
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦200K</button>
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦120K</button>
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦60K</button>
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦30K</button>
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦25K</button>
-          <button class="price-btn font-semibold py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦20K</button>
-        </div>
-
-        <div id="monthly-prices" class="grid grid-cols-3 gap-2 sm:gap-3 px-4 sm:px-6 pt-3 sm:pt-4 hidden">
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦10K</button>
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦15K</button>
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦25K</button>
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦40K</button>
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦50K</button>
-          <button class="price-btn font-semibold pb-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">₦70K</button>
-        </div>
-
-        <!-- Custom Amount -->
-        <div class="px-4 sm:px-6 pt-4 sm:pt-4">
-          <input id="amount-input" type="text" placeholder="₦40,000" class="w-full bg-transparent px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-lg border border-[#d71e28] rounded-md focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828]">
-        </div>
-
-        <!-- Dedication -->
-        <div class="px-4 sm:px-6 pt-3 sm:pt-4 space-y-2">
-          <label class="flex items-center gap-2 text-xs sm:text-sm text-[#d71e28] font-semibold">
-            <input type="checkbox" id="dedicate-check" class="h-3 w-3 bg-transparent text-[#0A1828] sm:h-4 sm:w-4">
-            Dedicate this donation
-          </label>
-          <input type="text" placeholder="Honoree name" class="w-full bg-transparent border border-[#d71e28] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-lg sm:text-lg">
-        </div>
-
-        <!-- Donate Button -->
-        <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
-          <button onclick="handleDonateClick()" class="w-full bg-[#0b1b82] hover:bg-[#fdd200] text-white hover:text-[#0A1828] text-sm sm:text-lg font-semibold py-2 sm:py-3 rounded-lg transition">
-            Donate
-          </button>
-        </div>
-      </div>
-
-      <!-- PAGE 2: Monthly Support Suggestion -->
-      <div id="donationConfirmPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
-        <div class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#fdd200]">
-          <button onclick="backToDonationForm()" class="text-gray-400 hover:text-[#fdd200] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="align-center text-md sm:text-lg font-semibold text-[#d71e28]">Become a monthly supporter</h2>
-        </div>
-        <div class="flex-grow px-4 sm:px-6 py-6 sm:py-10 text-center flex flex-col justify-center items-center">
-          <p class="text-[#d71e28] text-xs sm:text-base md:text-lg mb-2">Will you convert your <strong>₦40,000</strong><br />contribution into a monthly donation?</p>
-          <p class="text-[#d71e28] text-xs sm:text-sm md:text-base max-w-xs">Your ongoing support can help us<br />focus better on our work.</p>
-        </div>
-        <div class="flex flex-col gap-3 sm:gap-4 px-4 sm:px-6 pb-4 sm:pb-6">
-          <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
-            ❤️ Donate ₦16,020/month
-          </button>
-          <button onclick="backToDonationForm()" class="text-xs sm:text-sm text-[#0A1828] underline hover:text-white">
-            No, keep my one-time ₦40,000 gift
-          </button>
-        </div>
-      </div>
-
-      <!-- PAGE 3: Monthly Details Form -->
-      <div id="donationMonthlyFormPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
-        <div class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#fdd200]">
-          <button onclick="backToDonationForm()" class="text-[#d71e28] hover:text-[#fdd200] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="text-sm sm:text-lg font-semibold text-[#d71e28]">Monthly Donation Details</h2>
-        </div>
-        <div class="flex-grow px-4 sm:px-6 py-4 sm:py-6">
-          <div class="space-y-3 sm:space-y-4">
-            <div>
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">First Name</label>
-              <input type="text" class="w-full bg-transparent border border-[#d71e28] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm" />
-            </div>
-            <div>
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Last Name</label>
-              <input type="text" class="w-full bg-transparent border border-[#d71e28] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm" />
-            </div>
-            <div>
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Email Address</label>
-              <input type="email" class="w-full bg-transparent border border-[#d71e28] rounded-md px-3 sm:px-4 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm" />
-            </div>
-            <div>
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Phone Number</label>
-              <div class="flex gap-2">
-                <select class="border border-[#d71e28] bg-transparent rounded-md px-2 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] text-[#0A1828] text-xs sm:text-sm">
-                  <option value="+234">🇳🇬 +234</option>
-                  <option value="+1">🇺🇸 +1</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+91">🇮🇳 +91</option>
-                  <option value="+971">🇦🇪 +971</option>
-                  <option value="+20">🇪🇬 +20</option>
-                </select>
-                <input type="tel" class="flex-grow bg-transparent border border-[#d71e28] rounded-md px-2 sm:px-3 py-1.5 sm:py-2 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm" placeholder="8123456789" />
-              </div>
-            </div>
-            <label class="flex items-center gap-2 bg-transparent text-xs sm:text-sm text-[#d71e28] mt-2">
-              <input type="checkbox" class="h-3 w-3 sm:h-4 sm:w-4">
-              Donate anonymously
-            </label>
-          </div>
-        </div>
-        <div class="px-4 sm:px-6 pb-4 sm:pb-6">
-          <button onclick="goToPaymentPanel()" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl w-full transition-all duration-300 hover:scale-105 animate-slide-in">
-            Continue
-          </button>
-        </div>
-      </div>
-
-      <!-- PAGE 4: Payment Method Panel -->
-      <div id="donationPaymentPanel" class="hidden flex flex-col justify-between h-auto sm:h-full">
-        <!-- Header -->
-        <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-[#fdd200]">
-          <button onclick="backToMonthlyForm()" class="text-[#d71e28] hover:text-[#fdd200] text-lg sm:text-xl"><img src="left.svg" alt=""></button>
-          <h2 class="text-sm sm:text-lg font-semibold text-[#d71e28]">You Donate</h2>
-        </div>
-
-        <!-- Payment Method Form -->
-        <div class="flex-grow px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4">
-          <div>
-            <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Payment Method</label>
-            <div class="flex items-center gap-3 sm:gap-4">
-              <label class="flex items-center gap-2">
-                <input type="radio" name="payment-method" checked class="form-radio h-3 w-3 sm:h-4 sm:w-4">
-                <span class="text-[#d71e28] text-xs sm:text-sm">Credit Card</span>
-              </label>
-              <label class="flex items-center gap-2">
-                <input type="radio" name="payment-method" class="form-radio text-[#fdd200] h-3 w-3 sm:h-4 sm:w-4">
-                <span class="text-[#d71e28] text-xs sm:text-sm">Google Pay</span>
-              </label>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Card Number</label>
-            <div class="relative">
-              <input type="text" placeholder="1234 5678 9012 3456" class="w-full bg-transparent px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-lg border border-[#d71e28] rounded-md pr-10 sm:pr-14 focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828]">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Card logo" class="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 h-4 sm:h-6">
-            </div>
-          </div>
-
-          <div class="flex gap-2 sm:gap-4">
-            <div class="w-1/2">
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">Expiry Date</label>
-              <input type="text" placeholder="MM / YY" class="w-full bg-transparent px-3 sm:px-4 py-2 sm:py-3 border border-[#d71e28] rounded-md focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm">
-            </div>
-            <div class="w-1/2">
-              <label class="block text-xs sm:text-sm font-medium text-[#d71e28] mb-1">CVC</label>
-              <input type="text" placeholder="123" class="w-full bg-transparent px-3 sm:px-4 py-2 sm:py-3 border border-[#d71e28] rounded-md focus:ring-2 focus:ring-[#d71e28] focus:outline-none text-[#0A1828] text-xs sm:text-sm">
-            </div>
-          </div>
-
-          <!-- Cover Transaction Cost -->
-          <label class="flex items-center gap-2 text-xs sm:text-sm text-[#d71e28] mt-2">
-            <input type="checkbox" class="h-3 w-3 sm:h-4 sm:w-4">
-            Cover transaction costs
-          </label>
-
-          <!-- Total -->
-          <div class="bg-[#d71e28] border border-[#fdd200] rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-200 font-semibold text-xs sm:text-base">
-            Total to Pay: <span class="text-[#fdd200] font-bold">₦40,000</span>
-          </div>
-        </div>
-
-        <!-- Donate Button -->
-        <div class="px-4 sm:px-6 pb-4 sm:pb-6">
-          <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl w-full transition-all duration-300 hover:scale-105 animate-slide-in">
-            Donate
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
 
 <!-- Hero Section -->
-<section class="relative bg-cover bg-center text-white" style="background-image: url('background.avif');">
-  <div class="bg-[#0A1828]/60 w-full h-full py-12 px-4 sm:px-6 text-center backdrop-blur-sm">
+<section class="relative bg-cover h-full w-full text-white" style="background-image: url('background.webp');">
+  <div class="w-full py-12 px-4 sm:px-6 text-center">
     <!-- Headline -->
-    <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold italic mb-6 animate-slide-in text-white">
-      PALESTINE <span class="text-[#fdd200]">|</span> Humanity’s Worst Crisis <span class="text-[#fdd200]">|</span><br>
-      <span class="italic font-semibold">Thousands of Children Killed</span> <span class="text-[#fdd200]">PS</span>
+    <h1 class="text-3xl py-10 sm:text-5xl md:text-6xl lg:text-7xl font-extrabold italic mb-6 animate-slide-in text-white">
+      War and Closures Across Gaza and the West Bank
     </h1>
     <!-- Red Alert Text -->
     <p class="text-[#fdd200] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-8 animate-pulse-glow">
-      As we speak, 160 children are being killed daily in Gaza. 8000+ are injured and on the brink of a painful death.
+      Learn more about our emergency response in Palestine
     </p>
-    <!-- YouTube Video -->
-    <div class="max-w-3xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-[#ffffff]/40">
-      <iframe
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/5gynnbUhDno"
-        title="YouTube video"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-    </div>
+    
     <div class="w-full max-w-7xl mx-auto mt-10 px-4 sm:px-6 text-center">
-      <!-- Raised Amount and Goal -->
-      <div class="flex flex-col sm:flex-row justify-between items-center mb-4 text-white font-extrabold text-xl sm:text-2xl lg:text-3xl">
-        <span class="mb-2 sm:mb-0">$257,452 raised</span>
-        <span>$1,000,000 goal</span>
-      </div>
-      <!-- Progress Bar -->
-      <div class="w-full bg-[#fdd200]/30 rounded-full h-8 sm:h-10 overflow-hidden mb-8">
-        <div class="bg-[#0b1b82] h-full text-lg leading-none text-white font-bold p-2 shadow-md" style="width: 26%">
-          26%
-        </div>
-      </div>
+    <!-- Donation Progress (Modern Style) -->
+<div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 shadow-xl">
+  <!-- Raised and Goal Text -->
+  <div class="flex flex-col sm:flex-row items-center justify-between mb-4 text-white">
+    <div class="text-xl sm:text-2xl font-bold text-center sm:text-left">
+      <span class="block">$257,452</span>
+      <span class="text-sm font-medium text-white/80">raised</span>
+    </div>
+    <div class="text-xl sm:text-2xl font-bold text-center sm:text-right mt-3 sm:mt-0">
+      <span class="block">$1,000,000</span>
+      <span class="text-sm font-medium text-white/80">goal</span>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="w-full bg-[#fdd200]/30 rounded-full h-6 sm:h-8 overflow-hidden shadow-inner">
+    <div class="bg-[#0b1b82] h-full rounded-full flex items-center justify-center text-white text-sm sm:text-base font-semibold transition-all duration-500" style="width: 26%">
+      26% funded
+    </div>
+  </div>
+</div>
+
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] text-[#ffffff] border border-[#fdd200] hover:text-[#0A1828] font-bold py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl lg:text-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-          DONATE NOW
-        </button>
-        <button class="bg-[#fdd200] hover:bg-[#0b1b82] text-[#0A1828] hover:text-[#ffffff] font-bold py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl lg:text-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-          GIVE ZAKAT
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] text-[#ffffff] border border-[#fdd200] hover:text-[#0A1828] font-bold py-2 px-4 sm:px-10 rounded-full text-lg sm:text-xl lg:text-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          Learn More
         </button>
       </div>
-
-      <!-- Payment Methods -->
-      <div class="rounded-3xl shadow-2xl py-8 px-6 flex justify-center flex-wrap gap-6 sm:gap-8 bg-[#ffffff]/30 backdrop-blur-md">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-12 w-auto sm:h-14 lg:h-16 bg-white/90 p-2 sm:p-3 rounded-xl">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" class="h-12 w-auto sm:h-14 lg:h-16 bg-white/90 p-2 sm:p-3 rounded-xl">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" class="h-12 w-auto sm:h-14 lg:h-16 bg-white/90 p-2 sm:p-3 rounded-xl">
-        <img src="applepay.png" alt="Apple Pay" class="h-12 w-auto sm:h-14 lg:h-16 bg-white/90 p-2 sm:p-3 rounded-xl">
-        <img src="googlepay.png" alt="Google Pay" class="h-12 w-auto sm:h-14 lg:h-16 bg-white/90 p-2 sm:p-3 rounded-xl">
-      </div>
-      <!-- Note -->
-      <p class="text-white font-semibold text-lg sm:text-xl mt-6">100% Zakat-Eligible</p>
-      <p class="text-white text-base sm:text-lg">TAX DEDUCTIBLE | WE ARE A U.S BASED CHARITY TAX ID#: 83-4231488</p>
     </div>
   </div>
 </section>
-
-
 
 <!-- humanitarian body of the page -->
 <div class="bg-[#ffffff] py-12 px-4 sm:px-6">
@@ -397,7 +186,7 @@
       <h2 class="text-[#d71e28] text-center text-3xl sm:text-4xl font-bold p-4 animate-slide-in">This is our call to action as an Ummah</h2>
       <p class="p-6 leading-relaxed text-[#0A1828] sm:text-lg">It started in October 2023. Almost a year has passed. How much have we as an Ummah helped? Can we be proud of what we have given to the cause? Will Allah accept the little we have given from the abundance that Allah has blessed us with?</p>
       <div class="flex justify-center items-center p-6">
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate Now to Save Lives
         </button>
       </div>
@@ -440,7 +229,7 @@
       <p class="p-6 leading-relaxed text-[#0A1828] sm:text-lg">This makes it easier than ever to earn great rewards for your good deeds. With even the smallest donation, you could save a child from starvation or an elderly woman from the brutal conditions of displacement, lack of shelter, and extreme cold in Gaza.</p>
       <p class="p-6 leading-relaxed text-[#0A1828] sm:text-lg">Would you like the rewards of saving billions upon billions of humans? You just have to save one.</p>
       <div class="flex justify-center items-center p-6">
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate Now to Save Lives
         </button>
       </div>
@@ -451,7 +240,7 @@
         <h3 class="font-semibold text-[#0A1828] text-base sm:text-lg mb-2">Single Meal & Care Package</h3>
         <p class="text-[#d71e28] text-4xl sm:text-5xl font-bold mb-3">₦15K</p>
         <p class="text-[#0A1828] text-base sm:text-lg mb-4">Provides one person with a meal, clean water, and essential care items.</p>
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate a Meal
         </button>
       </div>
@@ -459,7 +248,7 @@
         <h3 class="font-semibold text-[#0A1828] text-base sm:text-lg mb-2">Two Meals & Care Package</h3>
         <p class="text-[#d71e28] text-4xl sm:text-5xl font-bold mb-3">₦30K</p>
         <p class="text-[#0A1828] text-base sm:text-lg mb-4">Supports two individuals with meals and critical care packages.</p>
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate a Meal
         </button>
       </div>
@@ -467,7 +256,7 @@
         <h3 class="font-semibold text-[#0A1828] text-base sm:text-lg mb-2">Family Meal & Care Package Bundle</h3>
         <p class="text-[#d71e28] text-4xl sm:text-5xl font-bold mb-3">₦50K</p>
         <p class="text-[#0A1828] text-base sm:text-lg mb-4">Delivers three meals and care packages to sustain a small family.</p>
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate a Meal
         </button>
       </div>
@@ -475,7 +264,7 @@
         <h3 class="font-semibold text-[#0A1828] text-base sm:text-lg mb-2">Ten Meals & Care Packages of Hope</h3>
         <p class="text-[#d71e28] text-4xl sm:text-5xl font-bold mb-3">₦150K</p>
         <p class="text-[#0A1828] text-base sm:text-lg mb-4">Supplies ten people with meals and comprehensive care.</p>
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate a Meal
         </button>
       </div>
@@ -483,7 +272,7 @@
         <h3 class="font-semibold text-[#0A1828] text-base sm:text-lg mb-2">Heroic Meal & Care Package Contribution</h3>
         <p class="text-[#d71e28] text-4xl sm:text-5xl font-bold mb-3">₦800K</p>
         <p class="text-[#0A1828] text-base sm:text-lg mb-4">Offers 50 meals and care packages, making a profound impact on a community.</p>
-        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+        <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
           Donate a Meal
         </button>
       </div>
@@ -552,7 +341,7 @@
         </h1>
         <p class="p-6 leading-relaxed text-[#0A1828] sm:text-lg">We should protect ourselves from the wrath and calamities of Allah by willingly donating to our Muslim brothers and sisters, for we, as an Ummah, are one body.</p>
         <div class="flex justify-center items-center p-6">
-          <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
+          <button class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white hover:text-[#0A1828] uppercase font-semibold py-2 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-slide-in">
             Donate Now to Save Lives
           </button>
         </div>
@@ -609,6 +398,14 @@
 
   let isEmailPromptVisible = false;
   let activeToggle = 'once'; // Track active toggle ('once' or 'monthly')
+
+
+
+    //mobile menu toggle for the header
+   document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('hidden');
+    });
 
   // Toggle donation type
   function setActiveToggle(toggle) {
