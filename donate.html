@@ -48,7 +48,9 @@
 </header>
   <!-- Mobile-only Top Image -->
 <div  class="sm:bg-[url('background.webp')]  sm:bg-cover sm:bg-center sm:min-h-screen sm:flex sm:items-center sm:justify-center bg-white">
-  <div class="block sm:hidden w-full h-48 bg-cover bg-center blur-md" style="background-image: url('background.webp');"></div>
+  <div class="hidden sm:block absolute inset-0 z-0">
+    <img src="background.webp" alt="Background" class="w-full h-full object-cover blur-sm" />
+  </div>
   <!-- Donation Form -->
   <div class="bg-[#ffffff] bg-opacity-95 shadow-2xl rounded-lg max-w-md w-full mx-auto p-6 sm:p-8 sm:my-8 sm:backdrop-blur-md">
     <h2 class="text-xl sm:text-2xl font-semibold text-[#d71e28] mb-3">
@@ -121,7 +123,6 @@
 
     <!-- Expanded Bank Payment Form (Hidden Initially) -->
 <div id="bank-payment-form" class="hidden mt-6 space-y-6">
-
   <!-- Contact Info -->
   <div>
     <h3 class="text-lg font-bold text-[#0A1828] mb-2">Contact Information</h3>
