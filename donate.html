@@ -47,10 +47,13 @@
   </div>
 </header>
   <!-- Mobile-only Top Image -->
-<div  class="sm:bg-[url('background.webp')]  sm:bg-cover sm:bg-center sm:min-h-screen sm:flex sm:items-center sm:justify-center bg-white">
+<div class="relative sm:min-h-screen sm:flex sm:items-center sm:justify-center bg-white overflow-hidden">
+
+  <!-- background blur image -->
   <div class="hidden sm:block absolute inset-0 z-0">
-    <img src="background.webp" alt="Background" class="w-full h-full object-cover blur-sm" />
+    <img src="background.webp" alt="Blurred Background" class="w-full h-full object-cover blur-md" />
   </div>
+  <div class="block sm:hidden w-full h-48 bg-cover bg-center" style="background-image: url('background.webp');"></div>
   <!-- Donation Form -->
   <div class="bg-[#ffffff] bg-opacity-95 shadow-2xl rounded-lg max-w-md w-full mx-auto p-6 sm:p-8 sm:my-8 sm:backdrop-blur-md">
     <h2 class="text-xl sm:text-2xl font-semibold text-[#d71e28] mb-3">
