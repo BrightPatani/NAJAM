@@ -51,7 +51,7 @@
 
   <!-- background blur image -->
   <div class="hidden sm:block absolute inset-0 z-0">
-    <img src="background.webp" alt="Blurred Background" class="w-full h-full object-cover blur-md" />
+    <img src="background.webp" alt="Background" class="w-full h-full object-cover blur-sm" />
   </div>
   <div class="block sm:hidden w-full h-48 bg-cover bg-center" style="background-image: url('background.webp');"></div>
   <!-- Donation Form -->
@@ -113,7 +113,7 @@
     <input type="number" id="custom-amount" placeholder="$0.00" class="w-full px-4 py-2 border border-[#f3f4f6] rounded mb-4" />
 
     <!-- Transaction fee checkbox -->
-    <div class="flex items-start gap-2 mb-4">
+    <div class="flex items-start gap-2 mb-4 text-justify">
       <input type="checkbox" id="cover-fee" checked class="accent-blue-600 mt-1">
       <p class="text-sm text-[#0A1828]">I'd like to help cover the transaction fees for my donation. Your total amount will be <strong id="total-display">$51.83</strong>.</p>
     </div>
@@ -175,7 +175,7 @@
   <div>
     <h3 class="text-lg font-bold text-[#0A1828] mb-2">Payment Information</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <select class="border border-[#f3f4f6] px-4 py-2 rounded">
+      <select class="border border-[#f3f4f6] text-[#0A1828] px-4 py-2 rounded">
         <option>Account Type</option>
         <option>Checking</option>
         <option>Savings</option>
@@ -186,9 +186,12 @@
       <input type="text" placeholder="Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
       <input type="text" placeholder="Confirm Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
     </div>
-    <p class="text-sm text-[#0A1828] mt-2 leading-relaxed">
-      I authorize the use of my bank account as a payment method and authorize this organization to debit my bank account via the Automated Clearing House (ACH) system for donations, in accordance with this organization's terms. This authority will remain in effect until canceled in writing by the account holder.
-    </p>
+    <label class="flex items-start gap-2 mt-4 text-sm text-[#0A1828] leading-relaxed text-justify">
+      <input type="checkbox" required class="mt-1 accent-blue-600" />
+      <span>
+        I authorize the use of my bank account as a payment method and authorize this organization to debit my bank account via the Automated Clearing House (ACH) system for donations, in accordance with this organization's terms. This authority will remain in effect until canceled in writing by the account holder.
+      </span>
+    </label>
     <div class="flex mt-4">
       <p class="justify-start mr-2 text-[#0A1828]">Your donation will be securely processed.</p>
       <button id="cover-fee" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] justify-end text-white px-4 py-3 hover:text-[#0A1828] transition-all rounded">
