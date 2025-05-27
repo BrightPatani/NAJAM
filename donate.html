@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-<header class="bg-[#d71e28]  px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md">
+<header class="bg-[#5d17eb]  px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md">
   <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
     
     <!-- Left: Logo -->
@@ -37,7 +37,6 @@
       <nav class="flex flex-col md:flex-row gap-4 md:gap-8 text-white text-lg font-semibold text-center md:text-left">
         <a href="/index.html" class="hover:text-[#fdd200]">Home</a>
         <a href="/about.html" class="hover:text-[#fdd200]">About Us</a>
-        <a href="/projects.html" class="hover:text-[#fdd200]">Our Projects</a>
       </nav>
       <a href="/donate.html" class="flex items-center space-x-2 bg-[#0b1b82] text-white border border-[#fdd200] px-4 py-2 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-x-1">
         <span class="text-xl sm:text-2xl">❤️</span>
@@ -56,7 +55,7 @@
   <div class="block sm:hidden w-full h-48 bg-cover bg-center" style="background-image: url('background.webp');"></div>
   <!-- Donation Form -->
   <div class="bg-[#ffffff] bg-opacity-95 shadow-2xl rounded-lg max-w-md w-full mx-auto p-6 sm:p-8 sm:my-8 sm:backdrop-blur-md">
-    <h2 class="text-xl sm:text-2xl font-semibold text-[#d71e28] mb-3">
+    <h2 class="text-xl sm:text-2xl font-semibold text-[#5d17eb] mb-3">
       Your donation will help hope find a way in Palestine, Lebanon and Jordan
     </h2>
     <p class="text-[#0A1828] mb-4 text-sm sm:text-base">
@@ -71,8 +70,8 @@
     <div class="bg-[#f3f4f6] border border-[#f3f4f6] rounded px-4 py-3 mb-6 flex items-center justify-between flex-wrap sm:flex-nowrap gap-4">
     <div class="text-sm text-[#0A1828]">
         Take future action with a single click. 
-        <strong><a href="#" class="text-black hover:text-[#d71e28]">Log in</a></strong> or 
-        <strong><a href="#" class="text-black hover:text-[#d71e28]">Sign up</a></strong> for 
+        <strong><a href="#" class="text-black hover:text-[#5d17eb]">Log in</a></strong> or 
+        <strong><a href="#" class="text-black hover:text-[#5d17eb]">Sign up</a></strong> for 
         <em class="italic text-black">Fast<strong>Action</strong></em>
     </div>
     <div class="flex items-center gap-2">
@@ -101,12 +100,12 @@
 
     <!-- Donation Options -->
     <div class="grid grid-cols-3 gap-2 mb-4" id="preset-amounts">
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$35</button>
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$50</button>
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$100</button>
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$250</button>
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$500</button>
-      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#d71e28]">$1,000</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$35</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$50</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$100</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$250</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$500</button>
+      <button class="amount-btn bg-[#f3f4f6] text-[#0A1828] font-semibold py-2 rounded hover:bg-[#5d17eb]">$1,000</button>
     </div>
 
     <!-- Custom amount input -->
@@ -195,10 +194,18 @@
     <div class="flex mt-4">
       <p class="justify-start mr-2 text-[#0A1828]">Your donation will be securely processed.</p>
       <button id="cover-fee" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] justify-end text-white px-4 py-3 hover:text-[#0A1828] transition-all rounded">
-        <strong id="total-display" class="text-sm">DONATE $51.83</strong> NOW
+        <strong class="text-sm">DONATE $51.83</strong> NOW
       </button>
     </div>
   </div>
+<!-- Success Modal -->
+<div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+  <div class="bg-white p-6 rounded shadow-lg text-center">
+    <h2 class="text-lg font-semibold mb-2 text-[#0A1828]">Submitted Successfully</h2>
+    <p class="text-sm text-[#0A1828]">Thank you for your donation!</p>
+    <button id="close-modal" class="mt-4 px-4 py-2 bg-[#5d17eb] text-white rounded">Close</button>
+  </div>
+</div>
 </div>
 
   </div>
@@ -239,57 +246,78 @@
       menu.classList.toggle('hidden');
     });
 
-  //payment button toggle 
-  document.addEventListener("DOMContentLoaded", function () {
-      const toggleButton = document.getElementById("toggle-payment-form");
-      const paymentForm = document.getElementById("bank-payment-form");
+  document.addEventListener('DOMContentLoaded', () => {
+  const amountButtons = document.querySelectorAll('.amount-btn');
+  const customAmountInput = document.getElementById('custom-amount');
+  const coverFeeCheckbox = document.getElementById('cover-fee');
+  const totalDisplayElements = document.querySelectorAll('#total-display');
+  const donateButton = document.querySelector('#bank-payment-form button[type="submit"], #bank-payment-form button#cover-fee');
+  const paymentForm = document.getElementById('bank-payment-form');
+  const togglePaymentFormButton = document.getElementById('toggle-payment-form');
+  const successModal = document.getElementById('success-modal');
+  const closeModalButton = document.getElementById('close-modal');
 
-      toggleButton.addEventListener("click", function () {
-        // Toggle the 'hidden' class on the form
-        paymentForm.classList.toggle("hidden");
+  let selectedAmount = 35;
 
-        // Optional: Scroll into view when shown
-        if (!paymentForm.classList.contains("hidden")) {
-          paymentForm.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-
-
-    /*Helper function to parse currency values from string to float*/
-    function parseAmount(value) {
-      return parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+  const updateTotal = () => {
+    let amount = parseFloat(customAmountInput.value) || selectedAmount;
+    if (coverFeeCheckbox.checked) {
+      amount += amount * 0.03;
     }
+    const formattedAmount = amount.toFixed(2);
+    totalDisplayElements.forEach(el => el.textContent = `$${formattedAmount}`);
+    donateButton.querySelector('strong').textContent = `DONATE $${formattedAmount}`;
+  };
 
-    function updateTotal(amount) {
-      const fee = coverFeeCheckbox.checked ? amount * 0.036 + 0.3 : 0;
-      const total = amount + fee;
-      totalDisplay.textContent = `$${total.toFixed(2)}`;
-    }
+  amountButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      selectedAmount = parseFloat(button.textContent.replace('$', ''));
+      customAmountInput.value = '';
+      updateTotal();
+    });
+  });
 
-    amountButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        amountButtons.forEach(b => b.classList.remove('bg-[#d71e28]', 'text-white'));
-        btn.classList.add('bg-[#d71e28]', 'text-white');
-        customAmount.value = '';
-        updateTotal(parseAmount(btn.textContent));
-      });
+  customAmountInput.addEventListener('input', () => {
+    selectedAmount = parseFloat(customAmountInput.value) || 0;
+    updateTotal();
+  });
+
+  coverFeeCheckbox.addEventListener('change', updateTotal);
+
+  togglePaymentFormButton.addEventListener('click', () => {
+    paymentForm.classList.toggle('hidden');
+  });
+
+  donateButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Store all input and select values
+    const inputs = paymentForm.querySelectorAll('input, select');
+    const formData = {};
+
+    inputs.forEach(input => {
+      const key = input.name || input.id || input.placeholder || input.className;
+      if (input.type === 'checkbox') {
+        formData[key] = input.checked;
+      } else {
+        formData[key] = input.value;
+      }
     });
 
-    customAmount.addEventListener('input', () => {
-      amountButtons.forEach(b => b.classList.remove('bg-[#d71e28]', 'text-white'));
-      updateTotal(parseAmount(customAmount.value));
-    });
+    localStorage.setItem('donationFormData', JSON.stringify(formData));
+    console.log('Saved to localStorage:', formData); // optional debug log
+    successModal.classList.remove('hidden');
+  });
 
-    coverFeeCheckbox.addEventListener('change', () => {
-      const activeBtn = Array.from(amountButtons).find(b => b.classList.contains('bg-[#d71e28]'));
-      const amount = customAmount.value ? parseAmount(customAmount.value) : (activeBtn ? parseAmount(activeBtn.textContent) : 0);
-      updateTotal(amount);
-    });
+  closeModalButton.addEventListener('click', () => {
+    successModal.classList.add('hidden');
+  });
 
-    // Init with $50
-    updateTotal(50);
-  </script>
+  updateTotal();
+});
+
+
+</script>
 </body>
 
 </html>

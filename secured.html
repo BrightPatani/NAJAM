@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Donation Confirmation - Najam Campaign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(255, 150, 0, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 150, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 150, 0, 0); }
+    }
+    .animate-slide-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 1.3s infinite;
+    }
+    .btn-primary {
+      background-color: #0b1b82;
+      border: 2px solid #fdd200;
+      color: #ffffff;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #fdd200;
+      color: #0A1828;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-[#5d17eb] px-4 sticky top-0 z-50 shadow-2xl backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-6">
+        <img src="logo.avif" alt="Najam Logo" class="h-12 w-auto sm:h-16 transition-transform duration-300 hover:scale-110 hover:rotate-3">
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none text-3xl">
+          ☰
+        </button>
+      </div>
+      <!-- Navigation + Donate -->
+      <div id="nav-menu" class="w-full md:flex md:items-center md:w-auto hidden flex-col md:flex-row gap-4 md:gap-8 mt-4 md:mt-0">
+        <nav class="flex flex-col md:flex-row gap-4 md:gap-8 text-white text-lg font-semibold text-center md:text-left">
+          <a href="/index.html" class="hover:text-[#fdd200]">Home</a>
+          <a href="/about.html" class="hover:text-[#fdd200]">About Us</a>
+        </nav>
+        <div class="flex justify-center items-center p-2">
+          <a href="/donate.html">
+            <button class="flex items-center justify-center gap-2 btn-primary px-4 py-2 rounded-full font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-x-1">
+              <p><span class="text-lg sm:text-2xl">❤️</span> Donate Now</p>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Confirmation Section -->
+  <section class="bg-[#ffffff] py-12 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto bg-[#0b1b82]/10 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm animate-slide-in">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#5d17eb] mb-6 text-center">Donation Confirmation</h2>
+      <p class="text-[#0A1828] text-base sm:text-lg mb-6 text-center">
+        Thank you for your generous contribution to Najam Institute Foundation. Your donation is helping provide critical relief to those in need. Below is a summary of your donation details.
+      </p>
+
+      <!-- Donation Summary -->
+      <div class="bg-[#f3f4f6] rounded-xl p-6 mb-6">
+        <h3 class="text-xl font-semibold text-[#0A1828] mb-4">Gift Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Donation Type</p>
+            <p id="donation-type" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Amount</p>
+            <p id="donation-amount" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Transaction Fee Covered</p>
+            <p id="cover-fee" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Total Amount</p>
+            <p id="total-amount" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="bg-[#f3f4f6] rounded-xl p-6 mb-6">
+        <h3 class="text-xl font-semibold text-[#0A1828] mb-4">Contact Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Name</p>
+            <p id="contact-name" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Email</p>
+            <p id="contact-email" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Address</p>
+            <p id="contact-address" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Mobile Phone</p>
+            <p id="contact-phone" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Information -->
+      <div class="bg-[#f3f4f6] rounded-xl p-6 mb-6">
+        <h3 class="text-xl font-semibold text-[#0A1828] mb-4">Payment Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Account Type</p>
+            <p id="account-type" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Routing Number</p>
+            <p id="routing-number" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Account Number</p>
+            <p id="account-number" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employer Matching -->
+      <div class="bg-[#f3f4f6] rounded-xl p-6 mb-6">
+        <h3 class="text-xl font-semibold text-[#0A1828] mb-4">Employer Matching</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Work Email</p>
+            <p id="work-email" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Employer</p>
+            <p id="employer" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subscription Preferences -->
+      <div class="bg-[#f3f4f6] rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-[#0A1828] mb-4">Subscription Preferences</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">SMS Updates</p>
+            <p id="sms-updates" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+          <div>
+            <p class="text-sm text-[#0A1828] font-medium">Email Updates</p>
+            <p id="email-updates" class="text-base sm:text-lg font-bold text-[#5d17eb]">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Note -->
+      <div class="mt-6 text-center">
+        <p class="text-sm text-[#0A1828] mb-4">
+          Your donation is 100% secure and tax-deductible. A confirmation email has been sent to your provided email address.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-6">
+          <img src="charity.png" alt="Charity Navigator" class="h-12 sm:h-16">
+          <img src="platinum.png" alt="Candid Platinum Transparency" class="h-12 sm:h-16">
+          <img src="top.jpg" alt="Charity Watch Top Rated" class="h-12 sm:h-16">
+          <img src="accredited.png" alt="BBB Accredited Charity" class="h-12 sm:h-16">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#5d17eb] text-yellow-50 py-6 px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-2xl backdrop-blur-md">
+    <div class="flex items-center space-x-4">
+      <img src="logo.avif" alt="Footer Logo" class="h-12 sm:h-14 lg:h-16 w-auto transition-transform duration-300 hover:scale-110 hover:rotate-3">
+    </div>
+    <p class="text-base sm:text-lg lg:text-xl opacity-90 text-center">© 2024 Najam Institute Foundation Inc - All rights reserved</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+
+    // Load donation data from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const formData = JSON.parse(localStorage.getItem('donationFormData')) || {};
+
+      // Helper function to safely display data
+      const displayValue = (id, value) => {
+        const element = document.getElementById(id);
+        element.textContent = value || '-';
+      };
+
+      // Gift Information
+      displayValue('donation-type', formData['donation-type'] ? formData['donation-type'].charAt(0).toUpperCase() + formData['donation-type'].slice(1) : '-');
+      displayValue('donation-amount', formData['custom-amount'] ? `$${parseFloat(formData['custom-amount']).toFixed(2)}` : '$35.00');
+      displayValue('cover-fee', formData['cover-fee'] ? 'Yes' : 'No');
+      const amount = parseFloat(formData['custom-amount']) || 35;
+      const total = formData['cover-fee'] ? (amount * 1.03).toFixed(2) : amount.toFixed(2);
+      displayValue('total-amount', `$${total}`);
+
+      // Contact Information
+      displayValue('contact-name', `${formData['First Name'] || ''} ${formData['Last Name'] || ''}`.trim() || '-');
+      displayValue('contact-email', formData['Email'] || '-');
+      const address = [
+        formData['Street Address'],
+        formData['City'],
+        formData['- State -'],
+        formData['Postal Code'],
+        formData['Country']
+      ].filter(Boolean).join(', ');
+      displayValue('contact-address', address || '-');
+      displayValue('contact-phone', formData['Mobile Phone (optional)'] || '-');
+
+      // Payment Information
+      displayValue('account-type', formData['Account Type'] || '-');
+      displayValue('routing-number', formData['Routing Number'] ? '****' + formData['Routing Number'].slice(-4) : '-');
+      displayValue('account-number', formData['Account Number'] ? '****' + formData['Account Number'].slice(-4) : '-');
+
+      // Employer Matching
+      displayValue('work-email', formData['Work Email'] || '-');
+      displayValue('employer', formData['Employer'] || '-');
+
+      // Subscription Preferences
+      displayValue('sms-updates', formData['Sign me up for SMS messages.'] ? 'Yes' : 'No');
+      displayValue('email-updates', formData['Yes, please send me occasional updates'] ? 'Yes' : 'No');
+    });
+  </script>
