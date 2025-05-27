@@ -14,6 +14,20 @@
       font-weight: 500;
       font-style: normal;
     }
+    .modal-content {
+      background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    }
+        .btn-primary {
+      background-color: #0b1b82;
+      border: 2px solid #fdd200;
+      color: #ffffff;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #fdd200;
+      color: #0A1828;
+      transform: scale(1.05);
+    }
 </style>
 </head>
 <body>
@@ -53,7 +67,7 @@
     <img src="background.webp" alt="Background" class="w-full h-full object-cover blur-sm" />
   </div>
   <div class="block sm:hidden w-full h-48 bg-cover bg-center" style="background-image: url('background.webp');"></div>
-  <!-- Donation Form -->
+ <!-- Donation Form -->
   <div class="bg-[#ffffff] bg-opacity-95 shadow-2xl rounded-lg max-w-md w-full mx-auto p-6 sm:p-8 sm:my-8 sm:backdrop-blur-md">
     <h2 class="text-xl sm:text-2xl font-semibold text-[#5d17eb] mb-3">
       Your donation will help hope find a way in Palestine, Lebanon and Jordan
@@ -65,23 +79,21 @@
       <strong>Monthly donations</strong> are the best way to sustain NAJAM's core programs and help us respond quickly in times of crisis.
     </p>
 
-
     <!-- FastAction Banner -->
     <div class="bg-[#f3f4f6] border border-[#f3f4f6] rounded px-4 py-3 mb-6 flex items-center justify-between flex-wrap sm:flex-nowrap gap-4">
-    <div class="text-sm text-[#0A1828]">
+      <div class="text-sm text-[#0A1828]">
         Take future action with a single click. 
         <strong><a href="#" class="text-black hover:text-[#5d17eb]">Log in</a></strong> or 
         <strong><a href="#" class="text-black hover:text-[#5d17eb]">Sign up</a></strong> for 
         <em class="italic text-black">Fast<strong>Action</strong></em>
-    </div>
-    <div class="flex items-center gap-2">
+      </div>
+      <div class="flex items-center gap-2">
         <a href="#" class="inline-block">
-        <img src="fast-action.svg" alt="FastAction Logo" class="h-6 sm:h-7">
+          <img src="fast-action.svg" alt="FastAction Logo" class="h-6 sm:h-7">
         </a>
         <a href="#" class="text-gray-500 text-xl leading-none hover:text-[#0A1828]">?</a>
+      </div>
     </div>
-    </div>
-
 
     <!-- Gift Information -->
     <h3 class="text-xl font-semibold text-[#0A1828] mb-2">Gift Information</h3>
@@ -122,94 +134,134 @@
       <button id="toggle-payment-form" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] text-white px-2 py-2 hover:text-[#0A1828]">Pay with Bank Account</button>
     </div>
 
-
     <!-- Expanded Bank Payment Form (Hidden Initially) -->
-<div id="bank-payment-form" class="hidden mt-6 space-y-6">
-  <!-- Contact Info -->
-  <div>
-    <h3 class="text-lg font-bold text-[#0A1828] mb-2">Contact Information</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <input type="text" placeholder="First Name" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-      <input type="text" placeholder="Last Name" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-    </div>
-    <input type="text" placeholder="Street Address" class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded" />
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
-      <select class="border border-[#f3f4f6] px-4 py-2 rounded">
-        <option>Country</option>
-        <option>United States</option>
-        <option>Canada</option>
-      </select>
-      <input type="text" placeholder="Postal Code" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-      <input type="text" placeholder="City" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-    </div>
-    <select class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded">
-      <option>- State -</option>
-      <option>California</option>
-      <option>New York</option>
-    </select>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
-      <input type="email" placeholder="Email" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-      <input type="text" placeholder="Mobile Phone (optional)" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-    </div>
-    <div class="mt-2">
-      <label class="flex items-start gap-2 text-sm text-[#0A1828]">
-        <input type="checkbox" class="accent-blue-600 mt-1" />
-        Sign me up for SMS messages.
-      </label>
-      <label class="flex items-start gap-2 text-sm text-[#0A1828] mt-1">
-        <input type="checkbox" class="accent-blue-600 mt-1" />
-        Yes, please send me occasional updates
-      </label>
+    <div id="bank-payment-form" class="hidden mt-6 space-y-6">
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-bold text-[#0A1828] mb-2">Contact Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input type="text" placeholder="First Name" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+          <input type="text" placeholder="Last Name" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+        </div>
+        <input type="text" placeholder="Street Address" class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded" />
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+          <select class="border border-[#f3f4f6] px-4 py-2 rounded">
+            <option>Country</option>
+            <option>United States</option>
+            <option>Canada</option>
+          </select>
+          <input type="text" placeholder="Postal Code" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+          <input type="text" placeholder="City" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+        </div>
+        <select class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded">
+          <option>- State -</option>
+          <option>California</option>
+          <option>New York</option>
+        </select>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+          <input type="email" placeholder="Email" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+          <input type="text" placeholder="Mobile Phone (optional)" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+        </div>
+        <div class="mt-2">
+          <label class="flex items-start gap-2 text-sm text-[#0A1828]">
+            <input type="checkbox" class="accent-blue-600 mt-1" />
+            Sign me up for SMS messages.
+          </label>
+          <label class="flex items-start gap-2 text-sm text-[#0A1828] mt-1">
+            <input type="checkbox" class="accent-blue-600 mt-1" />
+            Yes, please send me occasional updates
+          </label>
+        </div>
+      </div>
+
+      <!-- Employer Matching -->
+      <div>
+        <h3 class="text-lg font-bold text-[#0A1828] mb-2">Employer Matching</h3>
+        <input type="email" placeholder="Work Email" class="w-full border border-[#f3f4f6] px-4 py-2 rounded" />
+        <input type="text" placeholder="Employer" class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded" />
+      </div>
+
+      <!-- Payment Info -->
+      <div>
+        <h3 class="text-lg font-bold text-[#0A1828] mb-2">Payment Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <select class="border border-[#f3f4f6] text-[#0A1828] px-4 py-2 rounded">
+            <option>Account Type</option>
+            <option>Checking</option>
+            <option>Savings</option>
+          </select>
+          <input type="text" placeholder="Routing Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+          <input type="text" placeholder="Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+          <input type="text" placeholder="Confirm Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
+        </div>
+        <label class="flex items-start gap-2 mt-4 text-sm text-[#0A1828] leading-relaxed text-justify">
+          <input type="checkbox" required class="mt-1 accent-blue-600" />
+          <span>
+            I authorize the use of my bank account as a payment method and authorize this organization to debit my bank account via the Automated Clearing House (ACH) system for donations, in accordance with this organization's terms. This authority will remain in effect until canceled in writing by the account holder.
+          </span>
+        </label>
+        <div class="flex mt-4">
+          <p class="justify-start mr-2 text-[#0A1828]">Your donation will be securely processed.</p>
+          <button id="cover-fee" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] justify-end text-white px-4 py-3 hover:text-[#0A1828] transition-all rounded">
+            <strong class="text-sm">DONATE $51.83</strong> NOW
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Success Modal -->
+      <div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 transition-opacity duration-300 hidden">
+        <div class="modal-content w-full max-w-md sm:max-w-lg mx-4 p-6 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-sm animate-slide-in relative overflow-hidden">
+          <!-- Decorative Accent -->
+          <div class="absolute top-0 left-0 w-full h-2 p-2 bg-[#5d17eb]"></div>
+          <!-- Logo -->
+          <div class="flex justify-center mb-4 bg-[#5d17eb] rounded-md">
+            <img src="logo.avif" alt="Najam Logo" class="h-12 sm:h-16 w-auto transition-transform duration-300 hover:scale-110 hover:rotate-3">
+          </div>
+          <!-- Header -->
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#5d17eb] mb-4 text-center">Thank You for Your Support!</h2>
+          <!-- Message -->
+          <p class="text-[#0A1828] text-base sm:text-lg mb-6 text-center leading-relaxed">
+            Your generous donation to Najam Institute Foundation is making a life-changing impact in Palestine, Lebanon, and Jordan.
+          </p>
+          <!-- Donation Summary -->
+          <div class="bg-[#f3f4f6] rounded-xl p-4 mb-6">
+            <h3 class="text-lg sm:text-xl font-semibold text-[#0A1828] mb-3 text-center">Donation Summary</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[#0A1828]">
+              <div>
+                <p class="text-sm font-medium">Donation Amount</p>
+                <p id="donation-amount" class="text-base sm:text-lg font-bold text-[#5d17eb]">$51.83</p>
+              </div>
+              <div>
+                <p class="text-sm font-medium">Donation Type</p>
+                <p id="donation-type" class="text-base sm:text-lg font-bold text-[#5d17eb]">Monthly</p>
+              </div>
+            </div>
+          </div>
+          <!-- Call to Action -->
+          <div class="text-center mb-6">
+            <p class="text-sm sm:text-base text-[#0A1828] mb-4">
+              Continue making a difference by sharing our mission or donating again.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="/donate.html">
+                <button class="btn-primary font-bold py-2 px-4 sm:px-6 rounded-full text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-pulse-glow">
+                  Donate Again
+                </button>
+              </a>
+            </div>
+          </div>
+          <!-- Close Button -->
+          <div class="text-center">
+            <button id="close-modal" class="text-sm text-[#0A1828] hover:text-[#5d17eb] underline transition-colors duration-200">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Employer Matching -->
-  <div>
-    <h3 class="text-lg font-bold text-[#0A1828] mb-2">Employer Matching</h3>
-    <input type="email" placeholder="Work Email" class="w-full border border-[#f3f4f6] px-4 py-2 rounded" />
-    <input type="text" placeholder="Employer" class="w-full mt-3 border border-[#f3f4f6] px-4 py-2 rounded" />
-  </div>
-
-  <!-- Payment Info -->
-  <div>
-    <h3 class="text-lg font-bold text-[#0A1828] mb-2">Payment Information</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <select class="border border-[#f3f4f6] text-[#0A1828] px-4 py-2 rounded">
-        <option>Account Type</option>
-        <option>Checking</option>
-        <option>Savings</option>
-      </select>
-      <input type="text" placeholder="Routing Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
-      <input type="text" placeholder="Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-      <input type="text" placeholder="Confirm Account Number" class="border border-[#f3f4f6] px-4 py-2 rounded" />
-    </div>
-    <label class="flex items-start gap-2 mt-4 text-sm text-[#0A1828] leading-relaxed text-justify">
-      <input type="checkbox" required class="mt-1 accent-blue-600" />
-      <span>
-        I authorize the use of my bank account as a payment method and authorize this organization to debit my bank account via the Automated Clearing House (ACH) system for donations, in accordance with this organization's terms. This authority will remain in effect until canceled in writing by the account holder.
-      </span>
-    </label>
-    <div class="flex mt-4">
-      <p class="justify-start mr-2 text-[#0A1828]">Your donation will be securely processed.</p>
-      <button id="cover-fee" class="bg-[#0b1b82] hover:bg-[#fdd200] border border-[#fdd200] justify-end text-white px-4 py-3 hover:text-[#0A1828] transition-all rounded">
-        <strong class="text-sm">DONATE $51.83</strong> NOW
-      </button>
-    </div>
-  </div>
-<!-- Success Modal -->
-<div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-  <div class="bg-white p-6 rounded shadow-lg text-center">
-    <h2 class="text-lg font-semibold mb-2 text-[#0A1828]">Submitted Successfully</h2>
-    <p class="text-sm text-[#0A1828]">Thank you for your donation!</p>
-    <button id="close-modal" class="mt-4 px-4 py-2 bg-[#5d17eb] text-white rounded">Close</button>
-  </div>
-</div>
-</div>
-
-  </div>
-</div>
 
 <!-- Donation Security Footer -->
 <div class="max-w-2xl mx-auto mt-12 text-center px-4 sm:px-0">
